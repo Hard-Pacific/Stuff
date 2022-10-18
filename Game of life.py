@@ -71,6 +71,7 @@ def clear():
 win = tk.Tk()
 win.title("Conwey's game of life")
 win.geometry("+0+0")
+win.resizable(False, False)
 
 cell = []
 #Создает поле
@@ -80,20 +81,21 @@ for i in range(30):
         cell[i*30+j] = tk.Button(win, width =2, bg = "#FFFFFF", borderwidth = 1, relief = "ridge")
         cell[i*30+j].bind("<Button-1>", life_death)
         cell[i*30+j].grid(column = j, row = i)
-        
-start_Button = tk.Button(win, text = "Start", width = 11, font ="Arial 11", command = start)
+color_bg = "#333333"
+color_fg = "#D1D5DA"      
+start_Button = tk.Button(win, text = "Start", width = 11, font ="Arial 11", command = start, bg = color_bg, fg = color_fg)
 start_Button.grid( row = 31, columnspan = 5, column = 0)
 
-stop_Button = tk.Button(win, text = "Stop", width = 11, font ="Arial 11", command = stop)
+stop_Button = tk.Button(win, text = "Stop", width = 11, font ="Arial 11", command = stop, bg = color_bg, fg = color_fg)
 stop_Button.grid(row = 31, columnspan = 5, column = 5)
 
-clear_Button = tk.Button(win, text = "Clear", width = 11, font ="Arial 11", command = clear)
+clear_Button = tk.Button(win, text = "Clear", width = 11, font ="Arial 11", command = clear, bg = color_bg, fg = color_fg)
 clear_Button.grid(row = 31, columnspan = 5, column = 10)
 
-Rule_Button = tk.Button(win, text = "Rules", width = 11, font ="Arial 11", command = Choose_the_rule)
+Rule_Button = tk.Button(win, text = "Rules", width = 11, font ="Arial 11", command = Choose_the_rule, bg = color_bg, fg = color_fg)
 Rule_Button.grid(row = 31, columnspan = 5, column = 15)
 
-Rule_Label = tk.Label(win, text = "Life", width = 11, font ="Arial 11")
-Rule_Label.grid(row = 31, columnspan = 5, column = 20)
+Rule_Label = tk.Label(win, text = "Life", width = 24, height = 1, font ="Arial 11")
+Rule_Label.grid(row = 31, columnspan = 10, column = 20)
 
 win.mainloop()
